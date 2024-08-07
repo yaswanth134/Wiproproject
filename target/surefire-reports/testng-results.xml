@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-08-07T10:08:19 IST" name="RegistrationSuite" finished-at="2024-08-07T10:09:31 IST" duration-ms="72060">
+    <groups>
+    </groups>
+    <test started-at="2024-08-07T10:08:19 IST" name="RegistrationTests" finished-at="2024-08-07T10:09:31 IST" duration-ms="72060">
+      <class name="com.qa.testcases.SignUpTests">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.qa.testcases.SignUpTests@647fd8ce]" started-at="2024-08-07T10:08:19 IST" name="setUp" finished-at="2024-08-07T10:08:28 IST" duration-ms="9327" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testUserRegistration()[pri:1, instance:com.qa.testcases.SignUpTests@647fd8ce]" started-at="2024-08-07T10:08:28 IST" name="testUserRegistration" finished-at="2024-08-07T10:08:33 IST" duration-ms="4426" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testUserRegistration -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.qa.testcases.SignUpTests@647fd8ce]" started-at="2024-08-07T10:08:33 IST" name="tearDown" finished-at="2024-08-07T10:08:34 IST" duration-ms="770" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.qa.testcases.SignUpTests@647fd8ce]" started-at="2024-08-07T10:08:34 IST" name="setUp" finished-at="2024-08-07T10:08:42 IST" duration-ms="8165" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="TC_SignUp_02_UnsuccessfulSignUpWithEmptyMandatoryFields()[pri:2, instance:com.qa.testcases.SignUpTests@647fd8ce]" started-at="2024-08-07T10:08:42 IST" name="TC_SignUp_02_UnsuccessfulSignUpWithEmptyMandatoryFields" finished-at="2024-08-07T10:08:44 IST" duration-ms="1826" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_SignUp_02_UnsuccessfulSignUpWithEmptyMandatoryFields -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.qa.testcases.SignUpTests@647fd8ce]" started-at="2024-08-07T10:08:44 IST" name="tearDown" finished-at="2024-08-07T10:08:44 IST" duration-ms="588" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.qa.testcases.SignUpTests@647fd8ce]" started-at="2024-08-07T10:08:44 IST" name="setUp" finished-at="2024-08-07T10:08:52 IST" duration-ms="7820" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="TC_SignUp_03_UnsuccessfulSignUpWithInvalidEmailFormat()[pri:3, instance:com.qa.testcases.SignUpTests@647fd8ce]" started-at="2024-08-07T10:08:52 IST" name="TC_SignUp_03_UnsuccessfulSignUpWithInvalidEmailFormat" finished-at="2024-08-07T10:08:54 IST" duration-ms="2169" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_SignUp_03_UnsuccessfulSignUpWithInvalidEmailFormat -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.qa.testcases.SignUpTests@647fd8ce]" started-at="2024-08-07T10:08:54 IST" name="tearDown" finished-at="2024-08-07T10:08:55 IST" duration-ms="525" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.qa.testcases.SignUpTests@647fd8ce]" started-at="2024-08-07T10:08:55 IST" name="setUp" finished-at="2024-08-07T10:09:02 IST" duration-ms="7428" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="TC_SignUp_04_UnsuccessfulSignUpWithWeakPassword()[pri:4, instance:com.qa.testcases.SignUpTests@647fd8ce]" started-at="2024-08-07T10:09:02 IST" name="TC_SignUp_04_UnsuccessfulSignUpWithWeakPassword" finished-at="2024-08-07T10:09:04 IST" duration-ms="2303" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_SignUp_04_UnsuccessfulSignUpWithWeakPassword -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.qa.testcases.SignUpTests@647fd8ce]" started-at="2024-08-07T10:09:04 IST" name="tearDown" finished-at="2024-08-07T10:09:05 IST" duration-ms="581" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.qa.testcases.SignUpTests@647fd8ce]" started-at="2024-08-07T10:09:05 IST" name="setUp" finished-at="2024-08-07T10:09:13 IST" duration-ms="7613" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="TC_SignUp_05_UnsuccessfulSignUpWithMismatchedPassword()[pri:5, instance:com.qa.testcases.SignUpTests@647fd8ce]" started-at="2024-08-07T10:09:13 IST" name="TC_SignUp_05_UnsuccessfulSignUpWithMismatchedPassword" finished-at="2024-08-07T10:09:15 IST" duration-ms="2206" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_SignUp_05_UnsuccessfulSignUpWithMismatchedPassword -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.qa.testcases.SignUpTests@647fd8ce]" started-at="2024-08-07T10:09:15 IST" name="tearDown" finished-at="2024-08-07T10:09:16 IST" duration-ms="689" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.qa.testcases.SignUpTests@647fd8ce]" started-at="2024-08-07T10:09:16 IST" name="setUp" finished-at="2024-08-07T10:09:24 IST" duration-ms="8057" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="TC_SignUp_06_SuccessfulRegistration()[pri:6, instance:com.qa.testcases.SignUpTests@647fd8ce]" started-at="2024-08-07T10:09:24 IST" name="TC_SignUp_06_SuccessfulRegistration" finished-at="2024-08-07T10:09:30 IST" duration-ms="6664" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_SignUp_06_SuccessfulRegistration -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.qa.testcases.SignUpTests@647fd8ce]" started-at="2024-08-07T10:09:30 IST" name="tearDown" finished-at="2024-08-07T10:09:31 IST" duration-ms="759" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.qa.testcases.SignUpTests -->
+    </test> <!-- RegistrationTests -->
+  </suite> <!-- RegistrationSuite -->
+</testng-results>

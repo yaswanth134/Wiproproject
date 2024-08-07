@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-08-07T13:38:29 IST" name="Default suite" finished-at="2024-08-07T13:41:39 IST" duration-ms="189794">
+    <groups>
+    </groups>
+    <test started-at="2024-08-07T13:38:29 IST" name="Default test" finished-at="2024-08-07T13:41:39 IST" duration-ms="189794">
+      <class name="com.qa.testcases.checkoutTC_002">
+        <test-method is-config="true" signature="setUpReport()[pri:0, instance:com.qa.testcases.checkoutTC_002@3c46e67a]" started-at="2024-08-07T13:38:28 IST" name="setUpReport" finished-at="2024-08-07T13:38:29 IST" duration-ms="1048" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpReport -->
+        <test-method is-config="true" signature="userIsOnTheCheckoutPage()[pri:0, instance:com.qa.testcases.checkoutTC_002@3c46e67a]" started-at="2024-08-07T13:38:34 IST" name="userIsOnTheCheckoutPage" finished-at="2024-08-07T13:38:43 IST" duration-ms="9060" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- userIsOnTheCheckoutPage -->
+        <test-method signature="addingnewadress(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.qa.testcases.checkoutTC_002@3c46e67a]" started-at="2024-08-07T13:38:43 IST" name="addingnewadress" data-provider="checkoutData" finished-at="2024-08-07T13:39:39 IST" duration-ms="56146" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[john]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[doen]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[loading]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[anystreet]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[anycity]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[Arizona]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[85912.0]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[United States]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[7.8222100111E10]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[flatrate_flatrate]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addingnewadress -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.qa.testcases.checkoutTC_002@3c46e67a]" started-at="2024-08-07T13:39:39 IST" name="tearDown" finished-at="2024-08-07T13:39:40 IST" duration-ms="728" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="userIsOnTheCheckoutPage()[pri:0, instance:com.qa.testcases.checkoutTC_002@3c46e67a]" started-at="2024-08-07T13:39:40 IST" name="userIsOnTheCheckoutPage" finished-at="2024-08-07T13:39:47 IST" duration-ms="7238" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- userIsOnTheCheckoutPage -->
+        <test-method signature="checkoutProcess(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.qa.testcases.checkoutTC_002@3c46e67a]" started-at="2024-08-07T13:39:47 IST" name="checkoutProcess" data-provider="checkoutData" finished-at="2024-08-07T13:40:19 IST" duration-ms="31443" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[john]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[doen]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[loading]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[anystreet]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[anycity]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[Arizona]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[85912.0]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[United States]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[7.8222100111E10]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[flatrate_flatrate]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkoutProcess -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.qa.testcases.checkoutTC_002@3c46e67a]" started-at="2024-08-07T13:40:19 IST" name="tearDown" finished-at="2024-08-07T13:40:19 IST" duration-ms="754" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="userIsOnTheCheckoutPage()[pri:0, instance:com.qa.testcases.checkoutTC_002@3c46e67a]" started-at="2024-08-07T13:40:20 IST" name="userIsOnTheCheckoutPage" finished-at="2024-08-07T13:40:27 IST" duration-ms="7354" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- userIsOnTheCheckoutPage -->
+        <test-method signature="checkoutProcess1(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.qa.testcases.checkoutTC_002@3c46e67a]" started-at="2024-08-07T13:40:27 IST" name="checkoutProcess1" data-provider="checkoutData" finished-at="2024-08-07T13:41:02 IST" duration-ms="35341" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[john]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[doen]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[loading]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[anystreet]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[anycity]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[Arizona]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[85912.0]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[United States]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[7.8222100111E10]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[flatrate_flatrate]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkoutProcess1 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.qa.testcases.checkoutTC_002@3c46e67a]" started-at="2024-08-07T13:41:02 IST" name="tearDown" finished-at="2024-08-07T13:41:03 IST" duration-ms="674" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="userIsOnTheCheckoutPage()[pri:0, instance:com.qa.testcases.checkoutTC_002@3c46e67a]" started-at="2024-08-07T13:41:03 IST" name="userIsOnTheCheckoutPage" finished-at="2024-08-07T13:41:10 IST" duration-ms="6580" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- userIsOnTheCheckoutPage -->
+        <test-method signature="missingshippingdeatils(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.qa.testcases.checkoutTC_002@3c46e67a]" started-at="2024-08-07T13:41:10 IST" name="missingshippingdeatils" data-provider="checkoutData" finished-at="2024-08-07T13:41:38 IST" duration-ms="28701" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[john]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[doen]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[loading]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[anystreet]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[anycity]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[Arizona]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[85912.0]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[United States]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[7.8222100111E10]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[flatrate_flatrate]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- missingshippingdeatils -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.qa.testcases.checkoutTC_002@3c46e67a]" started-at="2024-08-07T13:41:38 IST" name="tearDown" finished-at="2024-08-07T13:41:39 IST" duration-ms="789" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="tearDownReport()[pri:0, instance:com.qa.testcases.checkoutTC_002@3c46e67a]" started-at="2024-08-07T13:41:39 IST" name="tearDownReport" finished-at="2024-08-07T13:41:40 IST" duration-ms="1147" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownReport -->
+      </class> <!-- com.qa.testcases.checkoutTC_002 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
