@@ -2,9 +2,10 @@ package checkout;
 
 import org.testng.annotations.Test;
 
-import GenricUtility.BaseClass;
-import Pomrepository.DashboardPage;
-import Pomrepository.LoginPage;
+import com.qa.pages.DashboardPage;
+import com.qa.pages.LoginPage;
+
+import GenericUtility.BaseClass;
 
 
 public class AddtoCartTest extends BaseClass{

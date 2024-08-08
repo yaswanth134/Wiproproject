@@ -91,7 +91,7 @@ public class SignUpTests {
     }
     @Test(priority=6)
     public void TC_SignUp_06_SuccessfulRegistration() {
-        registrationPage.registerUser("raj", "naug", "porsche.doe@example.com", "Password123", "Password123");
+        registrationPage.registerUser("raj", "naug", "porsche1.doe@example.com", "Password123", "Password123");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.className("message-success")));
         String successMsg = element.getText();

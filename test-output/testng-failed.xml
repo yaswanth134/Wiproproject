@@ -3,15 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.qa.testcases.checkoutTC_002">
+      <class name="com.qa.testcases.LumaStoreSearchTest">
         <methods>
-          <include name="setUpReport"/>
-          <include name="tearDown"/>
-          <include name="missingshippingdeatils" invocation-numbers="0"/>
+          <include name="checkoutProcess" invocation-numbers="0"/>
           <include name="userIsOnTheCheckoutPage"/>
-          <include name="tearDownReport"/>
+          <include name="testSearch"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.qa.testcases.checkoutTC_002 -->
+      </class> <!-- com.qa.testcases.LumaStoreSearchTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

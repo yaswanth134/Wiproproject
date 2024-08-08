@@ -5,10 +5,11 @@ import java.io.IOException;
 import org.apache.poi.EncryptedDocumentException;
 import org.testng.annotations.Test;
 
-import GenricUtility.BaseClass;
-import Pomrepository.DashboardPage;
-import Pomrepository.LoginPage;
-import Pomrepository.addcartPage;
+import com.qa.pages.DashboardPage;
+import com.qa.pages.LoginPage;
+import com.qa.pages.addcartPage;
+
+import GenericUtility.BaseClass;
 
 
 public class AddtoCartoneItemTest extends BaseClass{

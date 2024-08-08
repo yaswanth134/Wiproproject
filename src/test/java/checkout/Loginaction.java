@@ -2,8 +2,9 @@ package checkout;
 
 import org.testng.annotations.Test;
 
-import GenricUtility.BaseClass;
-import Pomrepository.LoginPage;
+import com.qa.pages.LoginPage;
+
+import GenericUtility.BaseClass;
 
 public class Loginaction extends BaseClass{
 	

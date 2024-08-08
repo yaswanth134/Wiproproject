@@ -8,26 +8,53 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.qa.pages.loginm;
+
+import GenericUtility.FileUtility;
+
 public class LumaStoreSearchTest { 
 	
 	WebDriver driver;
-     
+
+    public FileUtility fUtils = new FileUtility();
+    
+    
      @BeforeMethod
-    public void userIsOnTheCheckoutPage() {       
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Administrator\\Downloads\\chromedriver-win64\\chromedriver.exe");
-        driver = new ChromeDriver();       
-        driver.manage().window().maximize();
-        driver.get("https://magento.softwaretestingboard.com/customer/account/create/"); //  checkout URL        checkoutPage = new CheckoutPage(driver);
+    public void userIsOnTheCheckoutPage() throws IOException {       
+    	 String browser = fUtils.fetchDataFromPropertyFile("browser");
+ 		String url = fUtils.fetchDataFromPropertyFile("url");
+ 		
+ 		if(browser.equals("chrome")) {
+ 			System.setProperty("Webdriver.chrome.driver", "C:\\Users\\Administrator\\Downloads\\chromedriver-win64\\chromedriver.exe");
+ 			driver = new ChromeDriver();
+ 		}
+ 		
+ 		else if(browser.equals("firefox")) {
+ 			driver = new FirefoxDriver();
+ 		}
+ 		
+ 		else if(browser.equals("edge")) {
+ 			driver = new EdgeDriver();
+ 		}
+ 	
+ 		driver.get(url); //  checkout URL
+ 		driver.manage().window().maximize();
+ 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
     }    
     
     @Test(dataProvider = "checkoutData")  
@@ -87,6 +114,46 @@ public class LumaStoreSearchTest {
        excelFile.close();
        return data;
    }
+   
+	@DataProvider(name = "searchQueries")
+    public Object[][] searchQueries() {
+        return new Object[][]{
+            {"jacket", true},
+            {"invalidQuery12345", false},
+            {"", false},
+            {"@#$%^&*", false},
+            {"longsearchquerywithlotsofcharacters", false},
+            {"'; DROP TABLE users;--", false},
+            {"<script>alert('XSS')</script>", false}
+        };
+    }
+
+    @Test(dataProvider = "searchQueries")
+    public void testSearch(String query, boolean expectResults) {
+        performSearchTest(query, expectResults);
+    }
+
+    private void performSearchTest(String query, boolean expectResults) {
+        WebElement searchBar = driver.findElement((By) By.id("search"));
+        searchBar.clear();
+        searchBar.sendKeys(query);
+        searchBar.submit();
+
+        FluentWait<WebDriver> wait = new WebDriverWait((WebDriver) driver, Duration.ofSeconds(10));
+        WebElement results;
+
+        try {
+            results = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".search.results")));
+        } catch (Exception e) {
+            results = null;
+        } 
+
+        if (expectResults) {
+            Assert.assertNotNull(results, "Expected results for query: " + query);
+        } else {
+            Assert.assertTrue(results == null || results.getText().contains("Your search returned no results"), "Expected no results for query: " + query);
+        }
+    }
    @AfterMethod    public void tearDown() {
        if (driver != null)          
     	   driver.quit();

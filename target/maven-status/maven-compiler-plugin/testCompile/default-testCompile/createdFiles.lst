@@ -15,6 +15,8 @@ utilites\checkoutclass.class
 checkout\loginTC_001.class
 com\qa\pages\CheckoutPage.class
 com\qa\testcases\loginTC_001.class
+GenericUtility\FileUtility.class
+GenericUtility\BaseClass.class
 com\qa\pages\loginm.class
 checkout\Checkoutpagesteps.class
 com\qa\pages\signExcelTest.class

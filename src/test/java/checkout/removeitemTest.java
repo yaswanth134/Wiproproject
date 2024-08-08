@@ -2,9 +2,10 @@ package checkout;
 
 import org.testng.annotations.Test;
 
-import GenricUtility.BaseClass;
-import Pomrepository.DashboardPage;
-import Pomrepository.addcartPage;
+import com.qa.pages.DashboardPage;
+import com.qa.pages.addcartPage;
+
+import GenericUtility.BaseClass;
 
 public class removeitemTest extends BaseClass{
 	

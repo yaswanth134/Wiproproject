@@ -6,9 +6,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class addcartPage {
+	
+	WebDriver driver;
+	
 	public addcartPage(WebDriver driver) {
+		this.driver=driver;
 		PageFactory.initElements(driver, this);
-}
+	}
 	@FindBy(xpath="//a[@data-bind=\"scope: 'minicart_content'\"]")
 	 private WebElement  aadcard_button;
 	

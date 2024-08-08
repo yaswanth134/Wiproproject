@@ -9,6 +9,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -20,6 +22,7 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.Status;
 import com.qa.pages.loginm;
 
+import GenericUtility.FileUtility;
 import checkout.LoginRequest;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -35,12 +38,29 @@ import java.time.Duration;
 public class loginTC_001 extends BaseTest{
     WebDriver driver;
     loginm loginPage;
+    public FileUtility fUtils = new FileUtility();
 
     @BeforeMethod
-    public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Administrator\\Downloads\\chromedriver-win64\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.get("https://magento.softwaretestingboard.com/customer/account/login/");
+    public void setUp() throws IOException {
+	    String browser = fUtils.fetchDataFromPropertyFile("browser");
+		String url = fUtils.fetchDataFromPropertyFile("url");
+		
+		if(browser.equals("chrome")) {
+			System.setProperty("Webdriver.chrome.driver", "C:\\Users\\Administrator\\Downloads\\chromedriver-win64\\chromedriver.exe");
+			driver = new ChromeDriver();
+		}
+		
+		else if(browser.equals("firefox")) {
+			driver = new FirefoxDriver();
+		}
+		
+		else if(browser.equals("edge")) {
+			driver = new EdgeDriver();
+		}
+	
+		driver.get(url); //  checkout URL
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         loginPage = new loginm(driver);
     }
 

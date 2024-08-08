@@ -16,6 +16,8 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -27,20 +29,38 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.Status;
 import com.qa.pages.CheckoutPage;
 
+import GenericUtility.FileUtility;
 import utilites.checkoutclass;
 
 
-public class checkoutTC_002 extends checkoutclass{
+public class checkoutTC_002 extends checkoutclass {
 	WebDriver driver;
     CheckoutPage checkoutPage;
+	public FileUtility fUtils = new FileUtility();
     
     
     @BeforeMethod
-    public void userIsOnTheCheckoutPage() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Administrator\\Downloads\\chromedriver-win64\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("https://magento.softwaretestingboard.com/"); //  checkout URL
+    public void userIsOnTheCheckoutPage() throws IOException {
+    	
+    	String browser = fUtils.fetchDataFromPropertyFile("browser");
+		String url = fUtils.fetchDataFromPropertyFile("url");
+		
+		if(browser.equals("chrome")) {
+			System.setProperty("Webdriver.chrome.driver", "C:\\Users\\Administrator\\Downloads\\chromedriver-win64\\chromedriver.exe");
+			driver = new ChromeDriver();
+		}
+		
+		else if(browser.equals("firefox")) {
+			driver = new FirefoxDriver();
+		}
+		
+		else if(browser.equals("edge")) {
+			driver = new EdgeDriver();
+		}
+
+		driver.get(url); //  checkout URL
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         checkoutPage = new CheckoutPage(driver);
     }
     

@@ -7,9 +7,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class DashboardPage {
+	
+	WebDriver driver;
+	
 	public DashboardPage(WebDriver driver) {
+		this.driver=driver;
 		PageFactory.initElements(driver, this);
-}
+	}
 	@FindBy(xpath="//span[@class='ui-menu-icon ui-icon ui-icon-carat-1-e']")
 	 private WebElement Women_dropdownbutton;
 	
