@@ -9,6 +9,7 @@ public class whishlistpage {
 	
 	WebDriver driver;
 
+	// wish list login initating
     @FindBy(id = "email")
     WebElement emailAddress;
 
@@ -23,6 +24,7 @@ public class whishlistpage {
 		this.driver = driver;
         PageFactory.initElements(driver, this);
 	}
+	//login
 	public void login(String email, String pwd) {
         emailAddress.sendKeys(email);
         password.sendKeys(pwd);

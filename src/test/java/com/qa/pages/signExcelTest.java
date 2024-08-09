@@ -30,6 +30,8 @@ public class signExcelTest {
 
     @Test(dataProvider = "registrationData")
     public void registerUser(String firstName, String lastName, String email, String password, String confirmPassword) {
+    	
+    	//web elements for signup page 
         WebElement firstNameField = driver.findElement(By.id("firstname"));
         WebElement lastNameField = driver.findElement(By.id("lastname"));
         WebElement emailField = driver.findElement(By.id("email_address"));
@@ -37,26 +39,29 @@ public class signExcelTest {
         WebElement confirmPasswordField = driver.findElement(By.id("password-confirmation"));
         WebElement submitButton = driver.findElement(By.xpath("//button[@title='Create an Account']"));
 
+        //clearing the elements which are filled initially
         firstNameField.clear();
         lastNameField.clear();
         emailField.clear();
         passwordField.clear();
         confirmPasswordField.clear();
 
+        //sending keys for signin
         firstNameField.sendKeys(firstName);
         lastNameField.sendKeys(lastName);
         emailField.sendKeys(email);
         passwordField.sendKeys(password);
         confirmPasswordField.sendKeys(confirmPassword);
-
+        
+        //signin button click 
         submitButton.click();
 
-        // Add assertions here to verify the result (e.g., check for success message or error message)
     }
 
+    //data provider for register page
     @DataProvider(name = "registrationData")
     public Object[][] readExcelData() throws IOException {
-        String excelFilePath = "C:\\Users\\Administrator\\Downloads\\signinsheet.xlsx";
+        String excelFilePath = "C:\\Users\\Administrator\\eclipse-workspace\\capstoneproject\\src\\test\\resources\\TestData\\signinsheet.xlsx";
         FileInputStream excelFile = new FileInputStream(excelFilePath);
         Workbook workbook = new XSSFWorkbook(excelFile);
         Sheet sheet = workbook.getSheet("Sheet1");

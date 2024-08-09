@@ -27,15 +27,17 @@ public class Checkoutpagesteps extends cucumbercheckout{
 	WebDriver driver;
 	CheckoutPage checkoutPage;
 	
+	//seting up the cheeckout page 
 	@Given("User is on the checkout page")
     public void userIsOnTheCheckoutPage1() {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\Administrator\\Downloads\\chromedriver-win64\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://magento.softwaretestingboard.com/customer/account/login/"); // replace with your checkout URL
+        driver.get("https://magento.softwaretestingboard.com/customer/account/login/"); 
         checkoutPage = new CheckoutPage(driver);
     }
     
+	//logging in 
     @And("User is on login page")
     public void userlogin() {
     	try {
@@ -55,16 +57,19 @@ public class Checkoutpagesteps extends cucumbercheckout{
         
     }
     
+    // choosing an item
     @And("User choose item")
     public void Userchooseitem() {
     	checkoutPage.item();
     }
     
+    //clicking on cart icon 
     @And("User click on cart icon")
     public void clickoncart() {
     	checkoutPage.clickit();
     }
 
+    //entering th ship details
     @When("User enters the following shipping details")
     public void userEntersTheFollowingShippingDetails(DataTable dataT) {
         Map<String, String> data = dataT.asMap(String.class, String.class);
@@ -73,22 +78,26 @@ public class Checkoutpagesteps extends cucumbercheckout{
 
     }
 
+    //selecting a payment method
     @And("User selects the payment method Check  Money order {string}")
     public void userSelectsThePaymentMethod(String paymentMethod) {
         checkoutPage.selectPaymentMethod(paymentMethod);
     }
 
+    //confirming billing and shipping address
     @And("User confirms billing and shipping address are same")
     public void userConfirmsBillingAndShippingAddressAreSame() {
         checkoutPage.confirmBillingAndShippingSame();
 
     }
 
+    //user placing the order
     @Then("User places the order")
     public void userPlacesTheOrder() {
         checkoutPage.placeOrder();
     }
 
+    //order got successful
     @And("Order is placed successfully")
     public void orderIsPlacedSuccessfully() {
         checkoutPage.verifyOrderSuccess();

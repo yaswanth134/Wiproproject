@@ -7,8 +7,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class RegistrationPage {
+	
 	WebDriver driver;
 
+	//set up for signin 
     @FindBy(id = "firstname")
 	public
     WebElement firstName;
@@ -46,8 +48,8 @@ public class RegistrationPage {
         createAccountButton.click();
     }
 
+    //signing up for luma
 	public void RegistrationPage(String email, String password2) {
-		// TODO Auto-generated method stub
 		emailAddress.sendKeys(email); 
 		password.sendKeys(password2);
 		//registerButton.click();

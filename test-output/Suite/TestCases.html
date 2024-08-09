@@ -1,0 +1,809 @@
+<html>
+<head>
+<title>TestNG:  TestCases</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>TestCases</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>46/10/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Aug 08 11:52:54 IST 2024</td>
+</tr>
+<tr><td>Total time:</td><td>1171 seconds (1171805 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.qa.testcases.LumaStoreSearchTest.testSearch()'><b>testSearch</b><br>Test class: com.qa.testcases.LumaStoreSearchTest<br>Parameters: '; DROP TABLE users;--, false</td>
+<td><div><pre>java.lang.AssertionError: Expected no results for query: &apos;; DROP TABLE users;-- expected [true] but found [false]
+	at com.qa.testcases.LumaStoreSearchTest.performSearchTest(LumaStoreSearchTest.java:154)
+	at com.qa.testcases.LumaStoreSearchTest.testSearch(LumaStoreSearchTest.java:133)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1003404175", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1003404175'><pre>java.lang.AssertionError: Expected no results for query: &apos;; DROP TABLE users;-- expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at com.qa.testcases.LumaStoreSearchTest.performSearchTest(LumaStoreSearchTest.java:154)
+	at com.qa.testcases.LumaStoreSearchTest.testSearch(LumaStoreSearchTest.java:133)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>3</td>
+<td>com.qa.testcases.LumaStoreSearchTest@7c6908d7</td></tr>
+<tr>
+<td title='com.qa.testcases.whishlist.testaddtoWishlistwithlogin()'><b>testaddtoWishlistwithlogin</b><br>Test class: com.qa.testcases.whishlist</td>
+<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;com.aventstack.extentreports.ExtentReports.createTest(String, String)&quot; because &quot;this.extent&quot; is null
+	at com.qa.testcases.whishlist.testaddtoWishlistwithlogin(whishlist.java:73)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace596629964", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace596629964'><pre>java.lang.NullPointerException: Cannot invoke &quot;com.aventstack.extentreports.ExtentReports.createTest(String, String)&quot; because &quot;this.extent&quot; is null
+	at com.qa.testcases.whishlist.testaddtoWishlistwithlogin(whishlist.java:73)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>0</td>
+<td>com.qa.testcases.whishlist@3bf7ca37</td></tr>
+<tr>
+<td title='com.qa.testcases.whishlist.addduplicateWishlistwithlogin()'><b>addduplicateWishlistwithlogin</b><br>Test class: com.qa.testcases.whishlist</td>
+<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;com.aventstack.extentreports.ExtentReports.createTest(String, String)&quot; because &quot;this.extent&quot; is null
+	at com.qa.testcases.whishlist.addduplicateWishlistwithlogin(whishlist.java:200)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace655706912", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace655706912'><pre>java.lang.NullPointerException: Cannot invoke &quot;com.aventstack.extentreports.ExtentReports.createTest(String, String)&quot; because &quot;this.extent&quot; is null
+	at com.qa.testcases.whishlist.addduplicateWishlistwithlogin(whishlist.java:200)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>0</td>
+<td>com.qa.testcases.whishlist@3bf7ca37</td></tr>
+<tr>
+<td title='com.qa.testcases.whishlist.viewWishlistwithlogin()'><b>viewWishlistwithlogin</b><br>Test class: com.qa.testcases.whishlist</td>
+<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;com.aventstack.extentreports.ExtentReports.createTest(String, String)&quot; because &quot;this.extent&quot; is null
+	at com.qa.testcases.whishlist.viewWishlistwithlogin(whishlist.java:122)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1128173832", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1128173832'><pre>java.lang.NullPointerException: Cannot invoke &quot;com.aventstack.extentreports.ExtentReports.createTest(String, String)&quot; because &quot;this.extent&quot; is null
+	at com.qa.testcases.whishlist.viewWishlistwithlogin(whishlist.java:122)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>0</td>
+<td>com.qa.testcases.whishlist@3bf7ca37</td></tr>
+<tr>
+<td title='com.qa.testcases.whishlist.removeWishlistwithlogin()'><b>removeWishlistwithlogin</b><br>Test class: com.qa.testcases.whishlist</td>
+<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;com.aventstack.extentreports.ExtentReports.createTest(String, String)&quot; because &quot;this.extent&quot; is null
+	at com.qa.testcases.whishlist.removeWishlistwithlogin(whishlist.java:160)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1513139014", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1513139014'><pre>java.lang.NullPointerException: Cannot invoke &quot;com.aventstack.extentreports.ExtentReports.createTest(String, String)&quot; because &quot;this.extent&quot; is null
+	at com.qa.testcases.whishlist.removeWishlistwithlogin(whishlist.java:160)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>0</td>
+<td>com.qa.testcases.whishlist@3bf7ca37</td></tr>
+<tr>
+<td title='com.qa.testcases.whishlist.addmultipleWishlistwithlogin()'><b>addmultipleWishlistwithlogin</b><br>Test class: com.qa.testcases.whishlist</td>
+<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;com.aventstack.extentreports.ExtentReports.createTest(String, String)&quot; because &quot;this.extent&quot; is null
+	at com.qa.testcases.whishlist.addmultipleWishlistwithlogin(whishlist.java:251)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1734747662", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1734747662'><pre>java.lang.NullPointerException: Cannot invoke &quot;com.aventstack.extentreports.ExtentReports.createTest(String, String)&quot; because &quot;this.extent&quot; is null
+	at com.qa.testcases.whishlist.addmultipleWishlistwithlogin(whishlist.java:251)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>0</td>
+<td>com.qa.testcases.whishlist@3bf7ca37</td></tr>
+<tr>
+<td title='com.qa.testcases.checkoutTC_002.checkoutProcess1()'><b>checkoutProcess1</b><br>Test class: com.qa.testcases.checkoutTC_002<br>Parameters: john, doen, loading, anystreet, anycity, Arizona, 85912.0, United States, 7.8222100111E10, flatrate_flatrate</td>
+<td><div><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;button class=&quot;action primary checkout&quot; type=&quot;submit&quot; data-bind=&quot;
+                        click: placeOrder,
+                        attr: {title: $t(&apos;Place Order&apos;)},
+                        css: {disabled: !isPlaceOrderActionAllowed()},
+                        enable: (getCode() == isChecked())
+                        &quot; title=&quot;Place Order&quot;&gt;...&lt;/button&gt; is not clickable at point (867, 422). Other element would receive the click: &lt;div class=&quot;billing-address-details&quot;&gt;...&lt;/div&gt;
+  (Session info: chrome=127.0.6533.90)
+Build info: version: &apos;4.22.0&apos;, revision: &apos;c5f3146703*&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.11&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [972974252f3a392116903a02e18f7031, clickElement {id=f.D452C665EC25027FFD6EBD133952D55C.d.437B811364A7A943B20CB9EDFC3D2DEE.e.548}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.90, chrome: {chromedriverVersion: 127.0.6533.99 (f31af5097d90..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49657}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49657/devtoo..., se:cdpVersion: 127.0.6533.90, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (972974252f3a392116903a02e18f7031)] -&gt; xpath: //*[@id=&quot;checkout-payment-method-load&quot;]/div/div/div[2]/div[2]/div[4]/div/button]
+Session ID: 972974252f3a392116903a02e18f7031
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at com.qa.testcases.checkoutTC_002.checkoutProcess1(checkoutTC_002.java:279)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1659537713", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1659537713'><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;button class=&quot;action primary checkout&quot; type=&quot;submit&quot; data-bind=&quot;
+                        click: placeOrder,
+                        attr: {title: $t(&apos;Place Order&apos;)},
+                        css: {disabled: !isPlaceOrderActionAllowed()},
+                        enable: (getCode() == isChecked())
+                        &quot; title=&quot;Place Order&quot;&gt;...&lt;/button&gt; is not clickable at point (867, 422). Other element would receive the click: &lt;div class=&quot;billing-address-details&quot;&gt;...&lt;/div&gt;
+  (Session info: chrome=127.0.6533.90)
+Build info: version: &apos;4.22.0&apos;, revision: &apos;c5f3146703*&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.11&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [972974252f3a392116903a02e18f7031, clickElement {id=f.D452C665EC25027FFD6EBD133952D55C.d.437B811364A7A943B20CB9EDFC3D2DEE.e.548}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.90, chrome: {chromedriverVersion: 127.0.6533.99 (f31af5097d90..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49657}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49657/devtoo..., se:cdpVersion: 127.0.6533.90, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (972974252f3a392116903a02e18f7031)] -&gt; xpath: //*[@id=&quot;checkout-payment-method-load&quot;]/div/div/div[2]/div[2]/div[4]/div/button]
+Session ID: 972974252f3a392116903a02e18f7031
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at com.qa.testcases.checkoutTC_002.checkoutProcess1(checkoutTC_002.java:279)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>58</td>
+<td>com.qa.testcases.checkoutTC_002@179ece50</td></tr>
+<tr>
+<td title='com.qa.testcases.whishlist.testaddtoWishlist()'><b>testaddtoWishlist</b><br>Test class: com.qa.testcases.whishlist</td>
+<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;com.aventstack.extentreports.ExtentReports.createTest(String, String)&quot; because &quot;this.extent&quot; is null
+	at com.qa.testcases.whishlist.testaddtoWishlist(whishlist.java:37)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace942207747", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace942207747'><pre>java.lang.NullPointerException: Cannot invoke &quot;com.aventstack.extentreports.ExtentReports.createTest(String, String)&quot; because &quot;this.extent&quot; is null
+	at com.qa.testcases.whishlist.testaddtoWishlist(whishlist.java:37)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>0</td>
+<td>com.qa.testcases.whishlist@3bf7ca37</td></tr>
+<tr>
+<td title='com.qa.testcases.addtocart.addtocardaction4()'><b>addtocardaction4</b><br>Test class: com.qa.testcases.addtocart</td>
+<td><div><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;a href=&quot;#&quot; data-bind=&quot;attr: {&apos;data-cart-item&apos;: item_id, title: $t(&apos;Remove item&apos;)}&quot; class=&quot;action delete&quot; data-cart-item=&quot;236960&quot; title=&quot;Remove item&quot;&gt;...&lt;/a&gt; is not clickable at point (1373, 423). Other element would receive the click: &lt;div class=&quot;modals-overlay&quot; style=&quot;z-index: 901;&quot;&gt;&lt;/div&gt;
+  (Session info: chrome=127.0.6533.90)
+Build info: version: &apos;4.22.0&apos;, revision: &apos;c5f3146703*&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.11&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [e70222d8d97057915bff101c189b8e3f, clickElement {id=f.FBC99179740955B6B756603C498A4470.d.02A91D36A3FE222B50FCF2BD4A199E7A.e.715}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.90, chrome: {chromedriverVersion: 127.0.6533.99 (f31af5097d90..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49939}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49939/devtoo..., se:cdpVersion: 127.0.6533.90, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (e70222d8d97057915bff101c189b8e3f)] -&gt; xpath: //a[@title=&apos;Remove item&apos;]]
+Session ID: e70222d8d97057915bff101c189b8e3f
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy20.click(Unknown Source)
+	at com.qa.pages.DashboardPage.clickdeletebutton(DashboardPage.java:146)
+	at com.qa.testcases.addtocart.addtocardaction4(addtocart.java:124)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 35 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1664738820", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1664738820'><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;a href=&quot;#&quot; data-bind=&quot;attr: {&apos;data-cart-item&apos;: item_id, title: $t(&apos;Remove item&apos;)}&quot; class=&quot;action delete&quot; data-cart-item=&quot;236960&quot; title=&quot;Remove item&quot;&gt;...&lt;/a&gt; is not clickable at point (1373, 423). Other element would receive the click: &lt;div class=&quot;modals-overlay&quot; style=&quot;z-index: 901;&quot;&gt;&lt;/div&gt;
+  (Session info: chrome=127.0.6533.90)
+Build info: version: &apos;4.22.0&apos;, revision: &apos;c5f3146703*&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.11&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [e70222d8d97057915bff101c189b8e3f, clickElement {id=f.FBC99179740955B6B756603C498A4470.d.02A91D36A3FE222B50FCF2BD4A199E7A.e.715}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.90, chrome: {chromedriverVersion: 127.0.6533.99 (f31af5097d90..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49939}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49939/devtoo..., se:cdpVersion: 127.0.6533.90, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (e70222d8d97057915bff101c189b8e3f)] -&gt; xpath: //a[@title=&apos;Remove item&apos;]]
+Session ID: e70222d8d97057915bff101c189b8e3f
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy20.click(Unknown Source)
+	at com.qa.pages.DashboardPage.clickdeletebutton(DashboardPage.java:146)
+	at com.qa.testcases.addtocart.addtocardaction4(addtocart.java:124)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>42</td>
+<td>com.qa.testcases.addtocart@489115ef</td></tr>
+<tr>
+<td title='com.qa.testcases.whishlist.addWishlisttocartwithlogin()'><b>addWishlisttocartwithlogin</b><br>Test class: com.qa.testcases.whishlist</td>
+<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;com.aventstack.extentreports.ExtentReports.createTest(String, String)&quot; because &quot;this.extent&quot; is null
+	at com.qa.testcases.whishlist.addWishlisttocartwithlogin(whishlist.java:307)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace252056649", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace252056649'><pre>java.lang.NullPointerException: Cannot invoke &quot;com.aventstack.extentreports.ExtentReports.createTest(String, String)&quot; because &quot;this.extent&quot; is null
+	at com.qa.testcases.whishlist.addWishlisttocartwithlogin(whishlist.java:307)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>0</td>
+<td>com.qa.testcases.whishlist@3bf7ca37</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.qa.testcases.loginTC_001.testempty_email()'><b>testempty_email</b><br>Test class: com.qa.testcases.loginTC_001</td>
+<td></td>
+<td>1</td>
+<td>com.qa.testcases.loginTC_001@198b6731</td></tr>
+<tr>
+<td title='com.qa.testcases.SignUpTests.TC_SignUp_05_UnsuccessfulSignUpWithMismatchedPassword()'><b>TC_SignUp_05_UnsuccessfulSignUpWithMismatchedPassword</b><br>Test class: com.qa.testcases.SignUpTests</td>
+<td></td>
+<td>2</td>
+<td>com.qa.testcases.SignUpTests@3c9754d8</td></tr>
+<tr>
+<td title='com.qa.testcases.loginTC_001.loginUser()'><b>loginUser</b><br>Test class: com.qa.testcases.loginTC_001<br>Parameters: srivalli.ch@gmail.com, SrivalliCh1234</td>
+<td></td>
+<td>5</td>
+<td>com.qa.testcases.loginTC_001@198b6731</td></tr>
+<tr>
+<td title='com.qa.testcases.loginTC_001.loginUser()'><b>loginUser</b><br>Test class: com.qa.testcases.loginTC_001<br>Parameters: naima.k@gmail.com , Naima123456</td>
+<td></td>
+<td>7</td>
+<td>com.qa.testcases.loginTC_001@198b6731</td></tr>
+<tr>
+<td title='com.qa.testcases.loginTC_001.loginUser()'><b>loginUser</b><br>Test class: com.qa.testcases.loginTC_001<br>Parameters: , </td>
+<td></td>
+<td>0</td>
+<td>com.qa.testcases.loginTC_001@198b6731</td></tr>
+<tr>
+<td title='com.qa.testcases.checkoutTC_002.checkoutProcess()'><b>checkoutProcess</b><br>Test class: com.qa.testcases.checkoutTC_002<br>Parameters: john, doen, loading, anystreet, anycity, Arizona, 85912.0, United States, 7.8222100111E10, flatrate_flatrate</td>
+<td></td>
+<td>31</td>
+<td>com.qa.testcases.checkoutTC_002@179ece50</td></tr>
+<tr>
+<td title='com.qa.testcases.checkoutTC_002.addingnewadress()'><b>addingnewadress</b><br>Test class: com.qa.testcases.checkoutTC_002<br>Parameters: john, doen, loading, anystreet, anycity, Arizona, 85912.0, United States, 7.8222100111E10, flatrate_flatrate</td>
+<td></td>
+<td>86</td>
+<td>com.qa.testcases.checkoutTC_002@179ece50</td></tr>
+<tr>
+<td title='com.qa.testcases.SignUpTests.TC_SignUp_03_UnsuccessfulSignUpWithInvalidEmailFormat()'><b>TC_SignUp_03_UnsuccessfulSignUpWithInvalidEmailFormat</b><br>Test class: com.qa.testcases.SignUpTests</td>
+<td></td>
+<td>1</td>
+<td>com.qa.testcases.SignUpTests@3c9754d8</td></tr>
+<tr>
+<td title='com.qa.testcases.loginTC_001.testforgottenpassword()'><b>testforgottenpassword</b><br>Test class: com.qa.testcases.loginTC_001</td>
+<td></td>
+<td>22</td>
+<td>com.qa.testcases.loginTC_001@198b6731</td></tr>
+<tr>
+<td title='com.qa.testcases.loginTC_001.testinvalid_password()'><b>testinvalid_password</b><br>Test class: com.qa.testcases.loginTC_001</td>
+<td></td>
+<td>1</td>
+<td>com.qa.testcases.loginTC_001@198b6731</td></tr>
+<tr>
+<td title='com.qa.testcases.loginTC_001.testIncorrectLogin_password()'><b>testIncorrectLogin_password</b><br>Test class: com.qa.testcases.loginTC_001</td>
+<td></td>
+<td>3</td>
+<td>com.qa.testcases.loginTC_001@198b6731</td></tr>
+<tr>
+<td title='com.qa.testcases.loginTC_001.loginUser()'><b>loginUser</b><br>Test class: com.qa.testcases.loginTC_001<br>Parameters: sai.varma@gamil.com, SaiVarma1234</td>
+<td></td>
+<td>14</td>
+<td>com.qa.testcases.loginTC_001@198b6731</td></tr>
+<tr>
+<td title='com.qa.testcases.LumaStoreSearchTest.checkoutProcess()'><b>checkoutProcess</b><br>Test class: com.qa.testcases.LumaStoreSearchTest<br>Parameters: Shoe</td>
+<td></td>
+<td>4</td>
+<td>com.qa.testcases.LumaStoreSearchTest@7c6908d7</td></tr>
+<tr>
+<td title='com.qa.testcases.LumaStoreSearchTest.checkoutProcess()'><b>checkoutProcess</b><br>Test class: com.qa.testcases.LumaStoreSearchTest<br>Parameters: Search Items</td>
+<td></td>
+<td>7</td>
+<td>com.qa.testcases.LumaStoreSearchTest@7c6908d7</td></tr>
+<tr>
+<td title='com.qa.testcases.LumaStoreSearchTest.checkoutProcess()'><b>checkoutProcess</b><br>Test class: com.qa.testcases.LumaStoreSearchTest<br>Parameters: Jacket</td>
+<td></td>
+<td>7</td>
+<td>com.qa.testcases.LumaStoreSearchTest@7c6908d7</td></tr>
+<tr>
+<td title='com.qa.testcases.loginTC_001.testwrongcase()'><b>testwrongcase</b><br>Test class: com.qa.testcases.loginTC_001</td>
+<td></td>
+<td>12</td>
+<td>com.qa.testcases.loginTC_001@198b6731</td></tr>
+<tr>
+<td title='com.qa.testcases.checkoutTC_002.missingshippingdeatils()'><b>missingshippingdeatils</b><br>Test class: com.qa.testcases.checkoutTC_002<br>Parameters: john, doen, loading, anystreet, anycity, Arizona, 85912.0, United States, 7.8222100111E10, flatrate_flatrate</td>
+<td></td>
+<td>28</td>
+<td>com.qa.testcases.checkoutTC_002@179ece50</td></tr>
+<tr>
+<td title='com.qa.testcases.loginTC_001.testinvalid_password2()'><b>testinvalid_password2</b><br>Test class: com.qa.testcases.loginTC_001</td>
+<td></td>
+<td>4</td>
+<td>com.qa.testcases.loginTC_001@198b6731</td></tr>
+<tr>
+<td title='com.qa.testcases.addtocart.addtocardaction()'><b>addtocardaction</b><br>Test class: com.qa.testcases.addtocart</td>
+<td></td>
+<td>12</td>
+<td>com.qa.testcases.addtocart@489115ef</td></tr>
+<tr>
+<td title='com.qa.testcases.loginTC_001.loginUser()'><b>loginUser</b><br>Test class: com.qa.testcases.loginTC_001<br>Parameters: saifullah.a@gmail.com, Saifullqh123456</td>
+<td></td>
+<td>4</td>
+<td>com.qa.testcases.loginTC_001@198b6731</td></tr>
+<tr>
+<td title='com.qa.testcases.loginTC_001.loginUser()'><b>loginUser</b><br>Test class: com.qa.testcases.loginTC_001<br>Parameters: Jhon.Doe@gmail.com, Password 1234</td>
+<td></td>
+<td>4</td>
+<td>com.qa.testcases.loginTC_001@198b6731</td></tr>
+<tr>
+<td title='com.qa.testcases.loginTC_001.testinvalid_email2()'><b>testinvalid_email2</b><br>Test class: com.qa.testcases.loginTC_001</td>
+<td></td>
+<td>1</td>
+<td>com.qa.testcases.loginTC_001@198b6731</td></tr>
+<tr>
+<td title='com.qa.testcases.LumaStoreSearchTest.testSearch()'><b>testSearch</b><br>Test class: com.qa.testcases.LumaStoreSearchTest<br>Parameters: longsearchquerywithlotsofcharacters, false</td>
+<td></td>
+<td>22</td>
+<td>com.qa.testcases.LumaStoreSearchTest@7c6908d7</td></tr>
+<tr>
+<td title='com.qa.testcases.loginTC_001.testIncorrectLogin()'><b>testIncorrectLogin</b><br>Test class: com.qa.testcases.loginTC_001</td>
+<td></td>
+<td>3</td>
+<td>com.qa.testcases.loginTC_001@198b6731</td></tr>
+<tr>
+<td title='com.qa.testcases.loginTC_001.testinvalid_email3()'><b>testinvalid_email3</b><br>Test class: com.qa.testcases.loginTC_001</td>
+<td></td>
+<td>3</td>
+<td>com.qa.testcases.loginTC_001@198b6731</td></tr>
+<tr>
+<td title='com.qa.testcases.loginTC_001.testinvalid_email4()'><b>testinvalid_email4</b><br>Test class: com.qa.testcases.loginTC_001</td>
+<td></td>
+<td>1</td>
+<td>com.qa.testcases.loginTC_001@198b6731</td></tr>
+<tr>
+<td title='com.qa.testcases.LumaStoreSearchTest.checkoutProcess()'><b>checkoutProcess</b><br>Test class: com.qa.testcases.LumaStoreSearchTest<br>Parameters: Watch</td>
+<td></td>
+<td>5</td>
+<td>com.qa.testcases.LumaStoreSearchTest@7c6908d7</td></tr>
+<tr>
+<td title='com.qa.testcases.SignUpTests.TC_SignUp_04_UnsuccessfulSignUpWithWeakPassword()'><b>TC_SignUp_04_UnsuccessfulSignUpWithWeakPassword</b><br>Test class: com.qa.testcases.SignUpTests</td>
+<td></td>
+<td>1</td>
+<td>com.qa.testcases.SignUpTests@3c9754d8</td></tr>
+<tr>
+<td title='com.qa.testcases.loginTC_001.loginUser()'><b>loginUser</b><br>Test class: com.qa.testcases.loginTC_001<br>Parameters: akanksha.s@gmail.com , Akanksha12345</td>
+<td></td>
+<td>4</td>
+<td>com.qa.testcases.loginTC_001@198b6731</td></tr>
+<tr>
+<td title='com.qa.testcases.loginTC_001.testempty_password()'><b>testempty_password</b><br>Test class: com.qa.testcases.loginTC_001</td>
+<td></td>
+<td>0</td>
+<td>com.qa.testcases.loginTC_001@198b6731</td></tr>
+<tr>
+<td title='com.qa.testcases.addtocart.addtocardaction2()'><b>addtocardaction2</b><br>Test class: com.qa.testcases.addtocart</td>
+<td></td>
+<td>39</td>
+<td>com.qa.testcases.addtocart@489115ef</td></tr>
+<tr>
+<td title='com.qa.testcases.addtocart.addtocardaction1()'><b>addtocardaction1</b><br>Test class: com.qa.testcases.addtocart</td>
+<td></td>
+<td>22</td>
+<td>com.qa.testcases.addtocart@489115ef</td></tr>
+<tr>
+<td title='com.qa.testcases.loginTC_001.testinvalid_email()'><b>testinvalid_email</b><br>Test class: com.qa.testcases.loginTC_001</td>
+<td></td>
+<td>1</td>
+<td>com.qa.testcases.loginTC_001@198b6731</td></tr>
+<tr>
+<td title='com.qa.testcases.loginTC_001.testinvalid_password1()'><b>testinvalid_password1</b><br>Test class: com.qa.testcases.loginTC_001</td>
+<td></td>
+<td>4</td>
+<td>com.qa.testcases.loginTC_001@198b6731</td></tr>
+<tr>
+<td title='com.qa.testcases.LumaStoreSearchTest.testSearch()'><b>testSearch</b><br>Test class: com.qa.testcases.LumaStoreSearchTest<br>Parameters: <script>alert('XSS')</script>, false</td>
+<td></td>
+<td>22</td>
+<td>com.qa.testcases.LumaStoreSearchTest@7c6908d7</td></tr>
+<tr>
+<td title='com.qa.testcases.SignUpTests.testUserRegistration()'><b>testUserRegistration</b><br>Test class: com.qa.testcases.SignUpTests</td>
+<td></td>
+<td>4</td>
+<td>com.qa.testcases.SignUpTests@3c9754d8</td></tr>
+<tr>
+<td title='com.qa.testcases.LumaStoreSearchTest.testSearch()'><b>testSearch</b><br>Test class: com.qa.testcases.LumaStoreSearchTest<br>Parameters: invalidQuery12345, false</td>
+<td></td>
+<td>22</td>
+<td>com.qa.testcases.LumaStoreSearchTest@7c6908d7</td></tr>
+<tr>
+<td title='com.qa.testcases.SignUpTests.TC_SignUp_06_SuccessfulRegistration()'><b>TC_SignUp_06_SuccessfulRegistration</b><br>Test class: com.qa.testcases.SignUpTests</td>
+<td></td>
+<td>8</td>
+<td>com.qa.testcases.SignUpTests@3c9754d8</td></tr>
+<tr>
+<td title='com.qa.testcases.loginTC_001.testspecialcharcter()'><b>testspecialcharcter</b><br>Test class: com.qa.testcases.loginTC_001</td>
+<td></td>
+<td>6</td>
+<td>com.qa.testcases.loginTC_001@198b6731</td></tr>
+<tr>
+<td title='com.qa.testcases.loginTC_001.testValidLogin()'><b>testValidLogin</b><br>Test class: com.qa.testcases.loginTC_001</td>
+<td></td>
+<td>7</td>
+<td>com.qa.testcases.loginTC_001@198b6731</td></tr>
+<tr>
+<td title='com.qa.testcases.LumaStoreSearchTest.testSearch()'><b>testSearch</b><br>Test class: com.qa.testcases.LumaStoreSearchTest<br>Parameters: jacket, true</td>
+<td></td>
+<td>3</td>
+<td>com.qa.testcases.LumaStoreSearchTest@7c6908d7</td></tr>
+<tr>
+<td title='com.qa.testcases.SignUpTests.TC_SignUp_02_UnsuccessfulSignUpWithEmptyMandatoryFields()'><b>TC_SignUp_02_UnsuccessfulSignUpWithEmptyMandatoryFields</b><br>Test class: com.qa.testcases.SignUpTests</td>
+<td></td>
+<td>2</td>
+<td>com.qa.testcases.SignUpTests@3c9754d8</td></tr>
+<tr>
+<td title='com.qa.testcases.LumaStoreSearchTest.testSearch()'><b>testSearch</b><br>Test class: com.qa.testcases.LumaStoreSearchTest<br>Parameters: , false</td>
+<td></td>
+<td>20</td>
+<td>com.qa.testcases.LumaStoreSearchTest@7c6908d7</td></tr>
+<tr>
+<td title='com.qa.testcases.LumaStoreSearchTest.testSearch()'><b>testSearch</b><br>Test class: com.qa.testcases.LumaStoreSearchTest<br>Parameters: @#$%^&*, false</td>
+<td></td>
+<td>36</td>
+<td>com.qa.testcases.LumaStoreSearchTest@7c6908d7</td></tr>
+<tr>
+<td title='com.qa.testcases.LumaStoreSearchTest.checkoutProcess()'><b>checkoutProcess</b><br>Test class: com.qa.testcases.LumaStoreSearchTest<br>Parameters: T-shirts</td>
+<td></td>
+<td>3</td>
+<td>com.qa.testcases.LumaStoreSearchTest@7c6908d7</td></tr>
+<tr>
+<td title='com.qa.testcases.loginTC_001.loginUser()'><b>loginUser</b><br>Test class: com.qa.testcases.loginTC_001</td>
+<td></td>
+<td>6</td>
+<td>com.qa.testcases.loginTC_001@198b6731</td></tr>
+</table><p>
+</body>
+</html>

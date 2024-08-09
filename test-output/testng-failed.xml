@@ -3,14 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.qa.testcases.LumaStoreSearchTest">
+      <class name="com.qa.testcases.addtocart">
         <methods>
-          <include name="checkoutProcess" invocation-numbers="0"/>
-          <include name="userIsOnTheCheckoutPage"/>
-          <include name="testSearch"/>
-          <include name="tearDown"/>
+          <include name="addtocardaction4"/>
+          <include name="am"/>
+          <include name="bm"/>
         </methods>
-      </class> <!-- com.qa.testcases.LumaStoreSearchTest -->
+      </class> <!-- com.qa.testcases.addtocart -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

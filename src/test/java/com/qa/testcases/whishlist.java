@@ -29,6 +29,7 @@ public class whishlist extends BaseTest{
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\Administrator\\Downloads\\chromedriver-win64\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("https://magento.softwaretestingboard.com/");
+		driver.manage().window().maximize();
         wishpage=new whishlistpage(driver);
     }
 
@@ -71,7 +72,7 @@ public class whishlist extends BaseTest{
     @Test(priority=2)
     public void testaddtoWishlistwithlogin() {
     	test = extent.createTest("wishlist Test", "Test wishlist the login process");
-    	try {
+    	
     		WebDriverWait wait0 = new WebDriverWait(driver, Duration.ofSeconds(20));
     		
     		WebElement signin=driver.findElement(By.xpath("/html/body/div[2]/header/div[1]/div/ul/li[2]/a"));
@@ -96,7 +97,7 @@ public class whishlist extends BaseTest{
         	object.click();
         	
         	//adding to list
-        	WebElement addtowishlist=wait0.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"maincontent\"]/div[2]/div/div[1]/div[5]/div/a[1]")));
+        	WebElement addtowishlist=wait0.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"maincontent\"]/div[2]/div/div[1]/div[5]/div/a[1]/span")));
         	addtowishlist.click();
 
         	test.log(Status.INFO, "added to wishlist");
@@ -111,10 +112,7 @@ public class whishlist extends BaseTest{
         	}catch(Exception e) {
         		e.printStackTrace();
         	}
-    	}
-    	catch(Exception e) {
-    		System.out.println("not siggned in or a page not logged");
-    	}
+    	
     }
 
     @Test(priority=3)

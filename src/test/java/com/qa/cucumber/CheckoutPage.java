@@ -29,7 +29,7 @@ public class CheckoutPage{
     WebElement loginButton;
 
    
-    
+    //form filling details 
     By lastNameField = By.name("lastname");
     By company = By.name("company");
     By StreetAddress  = By.name("street[0]");
@@ -43,11 +43,12 @@ public class CheckoutPage{
     By placeOrderButton=By.xpath("//*[@id=\"checkout-payment-method-load\"]/div/div/div[2]/div[2]/div[4]/div/button");
     By orderSuccessMessage = By.xpath("//*[@id=\"maincontent\"]/div[1]/h1/span");
 
+    //set up for drive
     public CheckoutPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-    
+    //login
     public void login(String email, String pwd) {
     	try {
 
@@ -58,7 +59,7 @@ public class CheckoutPage{
     		e.printStackTrace();
     	}
     }
-    
+    //clicking on proceed to checkout
     public void clickit() {
     	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     	WebElement cartIcon = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".counter.qty")));
@@ -71,6 +72,8 @@ public class CheckoutPage{
             Assert.fail("Error message not displayed or page did not load correctly.");
         }
     }
+    
+    //adding details to form for shippping
     public void enterShippingAddress(String firstName, String lastName, String company1, String street, String city, String state1, String ZipCode, String Country1, String Phone) {
 	    try {
     		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -100,28 +103,34 @@ public class CheckoutPage{
 
     }
 
+    //selecting payment method
     public void selectPaymentMethod(String paymentMethod) {
     	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     	WebElement paymentMethodOption= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[2]/main/div[2]/div/div[2]/div[4]/ol/li[2]/div/div[3]/form/div[1]/table/tbody/tr[2]/td[1]/input")));//ko_unique_4
     	paymentMethodOption.click();
     }
 
+    //confirm billing and shipping 
     public void confirmBillingAndShippingSame() {
     	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     	WebElement paymentMethodOption= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"shipping-method-buttons-container\"]/div/button")));//ko_unique_4
        paymentMethodOption.click();
     }
 
+    //placing order
     public void placeOrder() {
     	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     	WebElement checkbox= wait.until(ExpectedConditions.visibilityOfElementLocated(checkingok));
         driver.findElement(placeOrderButton).click();
     }
+    
+    //verfying order
     public void verifyOrderSuccess() {
         assert driver.findElement(orderSuccessMessage).isDisplayed();
         
     }
 
+    //selecting an item
 	public void item() {
 		// TODO Auto-generated method stub
 		WebDriverWait wait0 = new WebDriverWait(driver, Duration.ofSeconds(20));

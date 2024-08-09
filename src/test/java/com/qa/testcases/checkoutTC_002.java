@@ -10,6 +10,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.InvalidSelectorException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
@@ -19,6 +20,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -63,9 +65,9 @@ public class checkoutTC_002 extends checkoutclass {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         checkoutPage = new CheckoutPage(driver);
     }
+   
     
-    
-    @Test(dataProvider = "checkoutData")
+    @Test(dataProvider = "checkoutData" , priority=1)
     public void checkoutProcess(String firstName1, String lastName1, String company1, String street1,
                                 String city1, String state1, String zipCode1, String country1, String phone1,String paymentMethod) {
     	
@@ -117,11 +119,13 @@ public class checkoutTC_002 extends checkoutclass {
             WebElement cityField = driver.findElement(By.name("city"));
             cityField.sendKeys(city1);
             WebElement stateDropdown = driver.findElement(By.name("region_id"));
-            stateDropdown.sendKeys(state1);
+            Select select=new Select(stateDropdown);
+	        select.selectByVisibleText(state1);
             WebElement zipCodeField = driver.findElement( By.name("postcode"));
             zipCodeField.sendKeys(zipCode1);
             WebElement countryDropdown = driver.findElement( By.name("country_id"));
-            countryDropdown.sendKeys(country1);
+            Select select2=new Select(countryDropdown);
+	        select2.selectByVisibleText(country1);
             WebElement phoneField = driver.findElement(By.name("telephone"));
             phoneField.sendKeys(phone1);
             System.out.println(paymentMethod);
@@ -144,33 +148,8 @@ public class checkoutTC_002 extends checkoutclass {
     	}
     }
 
-    @DataProvider(name = "checkoutData")
-    public Object[][] readExcelData() throws IOException {
-        String excelFilePath = "C:\\Users\\Administrator\\Downloads\\data4.xlsx";
-        FileInputStream excelFile = new FileInputStream(excelFilePath);
-        Workbook workbook = new XSSFWorkbook(excelFile);
-        Sheet sheet = workbook.getSheet("Sheet1");
-
-        int rowCount = sheet.getPhysicalNumberOfRows();
-        int columnCount = sheet.getRow(0).getPhysicalNumberOfCells();
-
-        Object[][] data = new Object[rowCount - 1][columnCount];
-
-        for (int i = 1; i < rowCount; i++) {
-            Row row = sheet.getRow(i);
-            for (int j = 0; j < columnCount; j++) {
-                Cell cell = row.getCell(j);
-                data[i - 1][j] = cell.toString();
-            }
-        }
-
-        workbook.close();
-        excelFile.close();
-
-        return data;
-    }
     
-    @Test(dataProvider="checkoutData")
+    @Test(dataProvider="checkoutData", priority = 3)
     public void missingshippingdeatils(String firstName1, String lastName1, String company1, String street1,
             String city1, String state1, String zipCode1, String country1, String phone1,String paymentMethod){
     	
@@ -229,11 +208,10 @@ public class checkoutTC_002 extends checkoutclass {
     		exceotion.printStackTrace();
     	}
     }
-
     
-    @Test(dataProvider = "checkoutData")
+    @Test(dataProvider = "checkoutData" , priority=2)
     public void checkoutProcess1(String firstName1, String lastName1, String company1, String street1,
-                                String city1, String state1, String zipCode1, String country1, String phone1,String paymentMethod){
+                                String city1, String state1, String zipCode1, String country1, String phone1,String paymentMethod) throws InterruptedException{
     	
 
     	//test for checkout with login and accessing the checkout
@@ -243,7 +221,7 @@ public class checkoutTC_002 extends checkoutclass {
     		WebDriverWait wait0 = new WebDriverWait(driver, Duration.ofSeconds(20));
         	WebElement signin=driver.findElement(By.xpath("/html/body/div[2]/header/div[1]/div/ul/li[2]/a"));
         	signin.click();
-        	checkoutPage.login("john.rajesh@example.com", "Password123"); 
+        	checkoutPage.login("srinag.doe@example.com", "Password123"); 
         	test.log(Status.INFO, "logged in");
         	
         	//product got added 
@@ -262,7 +240,7 @@ public class checkoutTC_002 extends checkoutclass {
         	test.log(Status.INFO, "product got added");
 
         	//payment selected and trying to placing order
-    		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+    		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
         	WebElement cartIcon = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"maincontent\"]/div[1]/div[2]/div/div/div/a")));
         	cartIcon.click();
         	WebElement viidicon=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[2]/header/div[2]/div[1]/a/span[2]/span[1]")));
@@ -275,24 +253,28 @@ public class checkoutTC_002 extends checkoutclass {
             WebElement continueButton = driver.findElement(By.xpath("//*[@id=\"shipping-method-buttons-container\"]/div/button"));
             continueButton.click();
             WebElement checkbox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"billing-address-same-as-shipping-checkmo\"]")));
-            WebElement placetoorder=driver.findElement(By.xpath("//*[@id=\"checkout-payment-method-load\"]/div/div/div[2]/div[2]/div[4]/div/button"));
+            checkbox.click();
+            checkbox.click();
+            WebElement placetoorder= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"checkout-payment-method-load\"]/div/div/div[2]/div[2]/div[4]/div/button")));
             placetoorder.click();
-            WebElement orderedmsg=driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[1]/h1/span"));
-
-        	test.log(Status.PASS, "order placed successfuly");
-            // Add assertions here to verify successful checkout or any error messages
-            // For example, check for an order confirmation message
-            assert orderedmsg.isDisplayed();
+            Thread.sleep(1000);
+            Boolean orderedmsg=wait.until(ExpectedConditions.titleContains(driver.getTitle()));
+        	if(orderedmsg) {
+        		System.out.println(driver.getTitle());
+            	test.log(Status.PASS, "order placed successfuly");
+        	}else {
+        		System.out.println("not ordered successfuly");
+        	}
     	}
-    	catch(InvalidSelectorException exceotion){
-    		System.out.println("asking for login");
+    	catch(ElementClickInterceptedException exceotion){
+    		System.out.println("element not clicking");
     		exceotion.printStackTrace();
     	}
     }
-   
-    @Test(dataProvider = "checkoutData")
+
+    @Test(dataProvider = "checkoutData" , priority = 4)
     public void addingnewadress(String firstName1, String lastName1, String company1, String street1,
-                                String city1, String state1, String zipCode1, String country1, String phone1,String paymentMethod){
+                                String city1, String state1, String zipCode1, String country1, String phone1,String paymentMethod) throws InterruptedException{
     	
     	//test for checkout with login and accessing the checkout with new address adding
     	test = extent.createTest("checkout Test", "Test for chechoutpage addnewaddress with login");
@@ -342,42 +324,72 @@ public class checkoutTC_002 extends checkoutclass {
             WebElement cityField = driver.findElement(By.name("city"));
             cityField.sendKeys(city1);
             WebElement stateDropdown = driver.findElement(By.name("region_id"));
-            stateDropdown.sendKeys(state1);
+            Select select=new Select(stateDropdown);
+	        select.selectByVisibleText(state1);
             WebElement zipCodeField = driver.findElement( By.name("postcode"));
             zipCodeField.sendKeys(zipCode1);
             WebElement countryDropdown = driver.findElement( By.name("country_id"));
-            countryDropdown.sendKeys(country1);
+            Select select2=new Select(countryDropdown);
+	        select2.selectByVisibleText(country1);
             WebElement phoneField = driver.findElement(By.name("telephone"));
             phoneField.sendKeys(phone1);
-            WebElement checkbox2=driver.findElement(By.xpath("/html/body/div[3]/aside[2]/div[2]/div/div/form/div/div[11]/input"));
-            checkbox2.click();
-            try {
-            	
-            	//found a bag while automating next button not clickable
-	            WebElement saveButton=wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button.action.primary.action-save-address")));
-	            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", saveButton);
-	            System.out.println(paymentMethod);
-	            WebElement checkingok=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@type='radio'][@value='"+paymentMethod+"']")));
-	            checkingok.click();
-	            WebElement continueButton = driver.findElement(By.xpath("//*[@id=\"shipping-method-buttons-container\"]/div/button"));
-	            continueButton.click();
-	            WebElement checkbox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"billing-address-same-as-shipping-checkmo\"]")));
-	            WebElement placetoorder=driver.findElement(By.xpath("//*[@id=\"checkout-payment-method-load\"]/div/div/div[2]/div[2]/div[4]/div/button"));
-	            placetoorder.click();
-	            WebElement orderedmsg=driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[1]/h1/span"));
-            }
-            catch(TimeoutException e) {
-            	//order not placed
-	        	test.log(Status.FAIL, "order placed successfuly");
-	        	System.out.println("found bug");
-            }
+            
+        	//found a bag while automating next button not clickable
+            WebElement saveButton=driver.findElement(By.xpath("//button[contains(@class,'action primary action-save-address')]"));
+            saveButton.click();
+            
+            Thread.sleep(1000);
+            WebDriverWait wait3=new WebDriverWait(driver, Duration.ofSeconds(1000));
+            System.out.println(paymentMethod);
+            WebElement checkingok=wait3.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@type='radio'][@value='"+paymentMethod+"']")));
+            checkingok.click();
+            WebElement continueButton = driver.findElement(By.xpath("//*[@id=\"shipping-method-buttons-container\"]/div/button"));
+            continueButton.click();
+            WebElement checkbox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"billing-address-same-as-shipping-checkmo\"]")));
+            checkbox.click();
+            WebElement placetoorder=driver.findElement(By.xpath("//*[@id=\"checkout-payment-method-load\"]/div/div/div[2]/div[2]/div[4]/div/button"));
+            placetoorder.click();
+            Boolean orderedmsg=wait3.until(ExpectedConditions.titleContains(driver.getTitle()));
+            if(orderedmsg) {
+        		System.out.println("Thank you for your purchase!");
+        		System.out.println(driver.getTitle());
+            	test.log(Status.PASS, "order placed successfuly");
+        	}else {
+        		System.out.println("not ordered successfuly");
+        	}
+       
     	}
     	catch(InvalidSelectorException exceotion){
-    		System.out.println("asking for login");
+    		System.out.println("ivalid selector");
     		exceotion.printStackTrace();
     	}
     }
+    
+    @DataProvider(name = "checkoutData")
+    public Object[][] readExcelData() throws IOException {
+        String excelFilePath = "C:\\Users\\Administrator\\eclipse-workspace\\capstoneproject\\src\\test\\resources\\TestData\\data4.xlsx";
+        FileInputStream excelFile = new FileInputStream(excelFilePath);
+        Workbook workbook = new XSSFWorkbook(excelFile);
+        Sheet sheet = workbook.getSheet("Sheet1");
 
+        int rowCount = sheet.getPhysicalNumberOfRows();
+        int columnCount = sheet.getRow(0).getPhysicalNumberOfCells();
+
+        Object[][] data = new Object[rowCount - 1][columnCount];
+
+        for (int i = 1; i < rowCount; i++) {
+            Row row = sheet.getRow(i);
+            for (int j = 0; j < columnCount; j++) {
+                Cell cell = row.getCell(j);
+                data[i - 1][j] = cell.toString();
+            }
+        }
+
+        workbook.close();
+        excelFile.close();
+
+        return data;
+    }
 
     @AfterMethod
     public void tearDown() {

@@ -93,7 +93,7 @@ public class LumaStoreSearchTest {
 	  
 	        
 	        
-	   String excelFilePath = "C:\\Users\\Administrator\\Downloads\\SearchSheet.xlsx"; 
+	   String excelFilePath = "C:\\Users\\Administrator\\eclipse-workspace\\capstoneproject\\src\\test\\resources\\TestData\\SearchSheet.xlsx"; 
 	   FileInputStream excelFile = new FileInputStream(excelFilePath);
        Workbook workbook1 = new XSSFWorkbook(excelFile); 
        Sheet sheet1 = workbook1.getSheet("Sheet2");

@@ -21,6 +21,7 @@ import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.Status;
 import com.qa.pages.loginm;
+import com.qa.pages.whishlistpage;
 
 import GenericUtility.FileUtility;
 import checkout.LoginRequest;
@@ -42,29 +43,13 @@ public class loginTC_001 extends BaseTest{
 
     @BeforeMethod
     public void setUp() throws IOException {
-	    String browser = fUtils.fetchDataFromPropertyFile("browser");
-		String url = fUtils.fetchDataFromPropertyFile("url");
-		
-		if(browser.equals("chrome")) {
-			System.setProperty("Webdriver.chrome.driver", "C:\\Users\\Administrator\\Downloads\\chromedriver-win64\\chromedriver.exe");
-			driver = new ChromeDriver();
-		}
-		
-		else if(browser.equals("firefox")) {
-			driver = new FirefoxDriver();
-		}
-		
-		else if(browser.equals("edge")) {
-			driver = new EdgeDriver();
-		}
-	
-		driver.get(url); //  checkout URL
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        loginPage = new loginm(driver);
+    	System.setProperty("webdriver.chrome.driver", "C:\\Users\\Administrator\\Downloads\\chromedriver-win64\\chromedriver.exe");
+        driver = new ChromeDriver();
+        driver.get("https://magento.softwaretestingboard.com/customer/account/login/referer/aHR0cHM6Ly9tYWdlbnRvLnNvZnR3YXJldGVzdGluZ2JvYXJkLmNvbS8%2C/");
+        loginPage=new loginm(driver);
     }
 
-    @Test
+   @Test(priority=1)
     public void testValidLogin() {
     	test = extent.createTest("login Test", "Test the login process").assignCategory("smoke").assignAuthor("yaswanth");
     	try {
@@ -75,7 +60,7 @@ public class loginTC_001 extends BaseTest{
 	        // Wait for the user dashboard to be visible
 	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 	        try {
-	            wait.until(ExpectedConditions.titleContains("My Account"));
+	            wait.until(ExpectedConditions.titleContains("Home Page"));
 	            test.log(Status.PASS, "logged in successfuly");
 	        } catch (Exception e) {
 	            Assert.fail("Login failed or page did not load correctly.");
@@ -83,7 +68,7 @@ public class loginTC_001 extends BaseTest{
 	        }
 	
 	        // Verify successful login by checking the page title or any other element
-	        String expectedTitle = "My Account";
+	        String expectedTitle = "Home Page";
 	        String actualTitle = driver.getTitle();
 	        Assert.assertEquals(actualTitle, expectedTitle);
     	}
@@ -177,14 +162,14 @@ public class loginTC_001 extends BaseTest{
 	        // Wait for the error message to be visible
 	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 	        try {
-	            wait.until(ExpectedConditions.titleContains("My Account"));
+	            wait.until(ExpectedConditions.titleContains("Home Page"));
 	            test.log(Status.INFO, "logged in successfuly");
 	        } catch (Exception e) {
 	            Assert.fail("login failed or page did not load correctly.");
 	        }
 	
 	        // Verify successful login by checking the page title or any other element
-	        String expectedTitle = "My Account";
+	        String expectedTitle = "Home Page";
 	        String actualTitle = driver.getTitle();
 	        Assert.assertEquals(actualTitle, expectedTitle);
 	        test.log(Status.PASS, "logged in successfuly");
@@ -414,7 +399,7 @@ public class loginTC_001 extends BaseTest{
               
                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
                try {
-                   wait.until(ExpectedConditions.titleContains("My Account"));
+                   wait.until(ExpectedConditions.titleContains("Home Page"));
 
        	        test.log(Status.INFO,"logged in");
                } catch (Exception e) {
@@ -422,7 +407,7 @@ public class loginTC_001 extends BaseTest{
                }
 
                // Verify successful login by checking the page title or any other element
-               String expectedTitle = "My Account";
+               String expectedTitle = "Home Page";
                String actualTitle = driver.getTitle();
                Assert.assertEquals(actualTitle, expectedTitle);
 
@@ -437,7 +422,7 @@ public class loginTC_001 extends BaseTest{
 
     @DataProvider(name = "loginData")
     public Object[][] readExcelData() throws IOException {
-        String excelFilePath = "C:\\Users\\Administrator\\Downloads\\data2.xlsx";
+        String excelFilePath = "C:\\Users\\Administrator\\eclipse-workspace\\capstoneproject\\src\\test\\resources\\TestData\\data2.xlsx";
         FileInputStream excelFile = new FileInputStream(excelFilePath);
         Workbook workbook = new XSSFWorkbook(excelFile);
         Sheet sheet = workbook.getSheet("Sheet1");

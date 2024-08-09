@@ -14,6 +14,7 @@ public class LoginPage {
 	
 	WebDriver driver;
 	
+	// set up for login
 	@FindBy(xpath="(//a[contains(text(), 'Sign In')])[1]")
 	 private WebElement signinbutton;
 	
@@ -30,25 +31,24 @@ public class LoginPage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
 	}
-//	public WebElement getSigninbutton() {
-//		return signinbutton;
-//	}
-//
-//	public WebElement getEmail_textfield() {
-//		return email_textfield;
-//	}
-//
-//	public WebElement getPassword_textfield() {
-//		return Password_textfield;
-//	}
-//
-//	public WebElement getSign_button() {
-//		return sign_button;
-//	}
-    public void clicksign() {
-    	WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(20));
-    	WebElement signin=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[2]/header/div[1]/div/ul/li[2]/a")));
-    	signin.click();
+	public WebElement getSigninbutton() {
+		return signinbutton;
+	}
+
+	public WebElement getEmail_textfield() {
+		return email_textfield;
+	}
+
+	public WebElement getPassword_textfield() {
+		return Password_textfield;
+	}
+
+	public WebElement getSign_button() {
+		return sign_button;
+	}
+    public void clicksign() throws InterruptedException {
+    	Thread.sleep(2000);
+    	signinbutton.click();
     }
     public void loginaction(String email,String password) throws InterruptedException {
     	

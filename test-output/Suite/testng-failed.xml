@@ -1,17 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="WishListTest(failed)">
+  <test thread-count="5" name="TestCases(failed)">
     <classes>
+      <class name="com.qa.testcases.checkoutTC_002">
+        <methods>
+          <include name="checkoutProcess1" invocation-numbers="0"/>
+          <include name="setUpReport"/>
+          <include name="tearDown"/>
+          <include name="userIsOnTheCheckoutPage"/>
+          <include name="tearDownReport"/>
+        </methods>
+      </class> <!-- com.qa.testcases.checkoutTC_002 -->
+      <class name="com.qa.testcases.addtocart">
+        <methods>
+          <include name="addtocardaction4"/>
+          <include name="am"/>
+          <include name="bm"/>
+        </methods>
+      </class> <!-- com.qa.testcases.addtocart -->
+      <class name="com.qa.testcases.LumaStoreSearchTest">
+        <methods>
+          <include name="userIsOnTheCheckoutPage"/>
+          <include name="testSearch" invocation-numbers="5"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qa.testcases.LumaStoreSearchTest -->
       <class name="com.qa.testcases.whishlist">
         <methods>
+          <include name="testaddtoWishlistwithlogin"/>
           <include name="tearDown"/>
+          <include name="addduplicateWishlistwithlogin"/>
           <include name="tearDownReport"/>
+          <include name="viewWishlistwithlogin"/>
+          <include name="testaddtoWishlist"/>
           <include name="setUpReport"/>
           <include name="addWishlisttocartwithlogin"/>
+          <include name="addmultipleWishlistwithlogin"/>
           <include name="setUp"/>
+          <include name="removeWishlistwithlogin"/>
         </methods>
       </class> <!-- com.qa.testcases.whishlist -->
     </classes>
-  </test> <!-- WishListTest(failed) -->
+  </test> <!-- TestCases(failed) -->
 </suite> <!-- Failed suite [Suite] -->
